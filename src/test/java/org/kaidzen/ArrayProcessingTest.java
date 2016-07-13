@@ -29,8 +29,7 @@ public class ArrayProcessingTest {
     @Test
     public void testGetSecondMax() throws Exception {
         int[] testArray = new int[]{4, 8, 9, 10};
-        processing = new ArrayProcessing(testArray);
-        Assert.assertEquals(9, processing.getSecondMax());
+        Assert.assertEquals(9, processing.getSecondMax(testArray));
     }
 
     @Test
@@ -40,5 +39,22 @@ public class ArrayProcessingTest {
         processing = new ArrayProcessing(testArray);
         processing.sortArray();
         Assert.assertArrayEquals(expectedArray, processing.getSortedArray());
+    }
+
+    @Test
+    public void testFindPairsOnDefinedArray() throws Exception {
+        int[] testArray = new int[]{9, 4};
+        String expected = "The pair is 4 and 9\n";
+        String actual = processing.findPairs(testArray, 13);
+        Assert.assertTrue(expected.equals(actual));
+    }
+
+    @Test
+    public void testFindPairs() throws Exception {
+        int[] testArray = processing.createArray(100);
+        System.out.println(testArray.toString());
+        String actual = processing.findPairs(testArray, 37);
+        System.out.println(actual);
+        Assert.assertTrue(actual.length()>0);
     }
 }

@@ -50,8 +50,7 @@ public class ArrayProcessing {
         return array;
     }
 
-    public int getSecondMax(){
-        int[] array = getSampleArray();
+    public int getSecondMax(int[] array){
         int j=array.length-1;
         int firstHighest=0;
         int secondHighest=0;
@@ -98,9 +97,12 @@ public class ArrayProcessing {
         Arrays.sort(sortedArray);
     }
 
-    public void findPairs(int[] arrayInts, int sum){
+    public String findPairs(int[] arrayInts, int sum){
+
+        StringBuffer sb = new StringBuffer("");
+
         if(arrayInts == null || arrayInts.length < 2){
-            return;
+            return null;
         }
 
         int left = 0;
@@ -110,7 +112,7 @@ public class ArrayProcessing {
             int i = arrayInts[left];
             int j = arrayInts[right];
             if(i+j == sum){
-                System.out.println("The pair is "+i+" and "+j);
+                sb.append("The pair: "+i+" and "+j+"\n");
                 left++;
                 right--;
             }else if(i+j > sum){
@@ -119,6 +121,7 @@ public class ArrayProcessing {
                 left++;
             }
         }
+        return sb.toString();
     }
 
 
